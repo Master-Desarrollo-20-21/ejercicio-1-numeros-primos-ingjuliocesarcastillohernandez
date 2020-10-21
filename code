@@ -1,0 +1,46 @@
+public class App {
+
+    public static void main(String[] args) {
+        int sumfirst50primenumber = sumFirst50PrimeNumber(50);
+        System.out.println(sumfirst50primenumber);
+        int sumprimenumberrank0to50 = sumPrimeNumberRank0To50(50);
+        System.out.println(sumprimenumberrank0to50);
+    }
+
+    public static int sumFirst50PrimeNumber(int numberOfTimes){
+        int result = 0;
+        int i = 0;
+        do{
+            if (isPrimeNumber(i, 2)){
+                result = result + i;
+                numberOfTimes--;
+            }
+            i++;
+        }while(numberOfTimes>0);
+        return result;
+    }
+
+    public static int sumPrimeNumberRank0To50(int maxNumber){
+        int result = 0;
+        int i = 0;
+        do{
+            if (isPrimeNumber(i, 2)){
+                result = result + i;
+            }
+            i++;
+        }while(i<maxNumber);
+        return result;
+    }
+
+    public static boolean isPrimeNumber(int number, int i){
+        if (number == 2) {
+            return true;
+        } else if (number % i == 0 || number < 2) {
+            return false;
+        } else if (i > number/2) {
+            return true;
+        }
+        return isPrimeNumber(number, i+1);
+    }
+
+}
